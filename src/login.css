@@ -1,0 +1,198 @@
+/* Variables pour la cohérence des couleurs et la maintenabilité */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --background-color: #f5f6fa;
+    --white: #ffffff;
+    --gray-light: #ecf0f1;
+    --gray-dark: #7f8c8d;
+    --shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Style du fieldset */
+fieldset {
+    background-color: var(--white);
+    border: none;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+/* Style de la légende */
+legend {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+/* Style du formulaire */
+form {
+    margin-top: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Champs de saisie */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid var(--gray-light);
+    border-radius: 5px;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Placeholder style */
+::placeholder {
+    color: var(--gray-dark);
+    opacity: 0.7;
+}
+
+/* Checkbox personnalisée */
+input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--gray-dark);
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+/* Bouton de connexion */
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Messages d'erreur */
+.error {
+    color: var(--error-color);
+    font-size: 13px;
+    margin: -10px 0 15px;
+    padding: 5px 0;
+}
+
+/* Message de succès */
+.succ {
+    background-color: var(--success-color);
+    color: var(--white);
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Media queries pour la responsivité */
+@media screen and (max-width: 480px) {
+    fieldset {
+        padding: 20px;
+    }
+
+    legend {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    .btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+.btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn.loading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

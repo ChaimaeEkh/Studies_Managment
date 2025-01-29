@@ -1,5 +1,5 @@
 <?php
-setcookie('optL',"",time()-1);
+setcookie('visite', "", time()-1);
 header("Location: accueil.php");
-
+exit;
 ?>
